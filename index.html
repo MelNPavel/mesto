@@ -8,46 +8,80 @@
     <title>Место</title>
 </head>
 <body class="page">
-    
+
     <header class="header">
-        <img src="./image/Logo.svg" alt="Логотип">
+        <img class="logo" src="./image/Logo.svg" alt="Логотип">
         <hr class="line">
     </header>
 
     <main class="main">
+
         <section class="profile">
-            <img class="avatar" src="./image/JakIvCusto.jpg" alt="Жак Ив Кусто">
-            <div class="profile-info">
-                <h1>Жак-Ив Кусто</h1>
-                <p>Исследователь океана</p>
-                <button class="edit-button"></button>
+            <div class="profile__item">
+                <img class="avatar" src="./image/JakIvCusto.jpg" alt="Фото Жак-Ив Кусто">
+                <div class="profile-info">
+                    <div class="profile-info__item">
+                        <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+                        <button class="edit-button">
+                            <img src="./image/button-edit.svg" alt="Кнопка редактирования">
+                        </button>
+                    </div>
+                    <p class="profile-info__specialization">Исследователь океана</p>
+                </div>
             </div>
-            <button class="add-button">+</button>
+            <button class="add-button">
+                <img src="./image/add-button.svg" alt="Кнопка добавления">
+            </button>
         </section>
-        <ul class="elements">
-            <li class="element">
-                <img src="./image/Karachaevsk.jpg" alt="Карачаевск">
+
+        <ul class="element">
+            <li>
+                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Карачаевск">
+                <div class="element__item">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
-            <li class="element">
-                <img src="./image/Elbrus.jpg" alt="Эльбрус">
+            <li>
+                <img class="element__img" src="./image/Elbrus.jpg" alt="Эльбрус">
+                <div class="element__item">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
-            <li class="element">
-                <img src="./image/Dombai.jpg" alt="Домбай">
+            <li>
+                <img class="element__img" src="./image/Dombai.jpg" alt="Домбай">
+                <div class="element__item">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
-            <li class="element">
-                <img src="./image/Elbrus.jpg" alt="Эльбрус">
+            <li>
+                <img class="element__img" src="./image/Elbrus.jpg" alt="Эльбрус">
+                <div class="element__item">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
-            <li class="element">
-                <img src="./image/Dombai.jpg" alt="Домбай">
+            <li>
+                <img class="element__img" src="./image/Dombai.jpg" alt="Домбай">
+                <div class="element__item">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
-            <li class="element">
-                <img src="./image/Karachaevsk.jpg" alt="Карачаево-Черкессия">
+            <li>
+                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Карачаево-Черкессия">
+                <div class="element__item">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__like"></button>
+                </div>
             </li>
         </ul>
     </main>
 
     <footer class="footer">
-        
+        <p class="copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 </body>
 </html>
