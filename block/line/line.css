@@ -9,3 +9,9 @@
         max-width: 100%;
     }
 }
+
+@media screen and (max-width: 358px) {
+    .line{
+        margin-top: 28px;
+    }
+}

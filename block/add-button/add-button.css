@@ -16,8 +16,8 @@
 
 @media screen and (max-width: 358px) {
     .add-button {
-        margin-top: 36px;
-        padding: 17px 0px;
+        margin-top: 32px;
+        padding: 12px 0px 7px;
         min-width: 282px;
     }
 }
