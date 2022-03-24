@@ -1,0 +1,5 @@
+.profile-info {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
