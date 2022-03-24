@@ -14,6 +14,12 @@
     opacity: .4;
 }
 
+@media screen and (max-width: 767px) {
+    .add-button {
+        margin-top: 32px;
+    }
+}
+
 @media screen and (max-width: 358px) {
     .add-button {
         margin-top: 32px;
