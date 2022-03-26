@@ -2,9 +2,9 @@ let editBtnPopup = document.querySelector ('.edit-button');
 let popupOpen = document.querySelector ('.popup');
 let closeBtnPopup = document.querySelector ('.popup__close')
 let ProfileName = document.querySelector ('.profile-info__name')
-let ProfileSpec = document.querySelector ('.profile-info__specialization')
+let ProfileSpec = document.querySelector ('.profile-info__about')
 let inputName = document.querySelector ('.popup__input-name');
-let inputSpec = document.querySelector ('.popup__input-spec');
+let inputSpec = document.querySelector ('.popup__input-about');
 let submitPopup = document.querySelector ('.popup__button')
 
 
@@ -29,12 +29,13 @@ let formElement = document.querySelector ('.popup__form');
 function formSubmitHandler (evt) {
     evt.preventDefault();
     let nameInput = document.querySelector ('.popup__input-name');
-    let jobInput = document.querySelector ('.popup__input-spec');
+    let jobInput = document.querySelector ('.popup__input-about');
     ProfileName.textContent = nameInput.value;
     ProfileSpec.textContent = jobInput.value;
     togglePopup ();
 }
 formElement.addEventListener('submit', formSubmitHandler);
+
 
 let like = document.querySelector('.element__like');
 function likeBlack () {

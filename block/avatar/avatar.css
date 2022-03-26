@@ -4,15 +4,8 @@
     margin-right: 30px;
 }
 
-@media screen and (max-width: 358px) {
+@media screen and (max-width: 424px) {
     .avatar {
        margin: 0 auto 26px;
     }
 }
-
-/* @media screen and (max-width: 330px) {
-    .profile-info__name {
-        font-size: 32px;
-        line-height: 38px;
-    }
-} */

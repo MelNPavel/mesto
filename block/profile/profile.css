@@ -4,17 +4,19 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    max-width: 880px;
+    max-width: 100%;
 }
 
-@media screen and (max-width: 358px) {
+@media screen and (max-width: 677px) {
     .profile {
-        max-width: calc(100% - (2 * 19px));
+        justify-content: center;
+        flex-direction: column;
     }
 }
 
-@media screen and (max-width: 358px) {
-    .profile{
+@media screen and (max-width: 374px) {
+    .profile {
+        max-width: calc(100% - (2 * 19px));
         margin-top: 41px;
     }
 }

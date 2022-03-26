@@ -5,7 +5,7 @@
     margin: 0 0 10px;
 }
 
-@media screen and (max-width: 358px) {
+@media screen and (max-width: 624px) {
     .profile-info__name {
         font-size: 27px;
         line-height: 33px;
