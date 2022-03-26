@@ -7,17 +7,8 @@
 
 @media screen and (max-width: 358px) {
     .profile-info__name {
-        font-size: 34px;
-        line-height: 40px;
-        margin-bottom: 14px;
-    }
-}
-
-@media screen and (max-width: 330px) {
-    .profile-info__name {
         font-size: 27px;
         line-height: 33px;
-        padding-left: 32px;
         margin-bottom: 7px;
     }
 }
