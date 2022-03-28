@@ -1,5 +1,5 @@
 .popup__close{
-    background-color: #000000;
+    background: transparent;
     border: 0;
     position: absolute;
     top: -41px;
