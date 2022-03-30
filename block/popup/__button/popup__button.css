@@ -11,6 +11,7 @@
     padding: 0;
     transition: opacity .4s ease;
     cursor: pointer;
+    border: 0;
 }
 
 .popup__button:hover{

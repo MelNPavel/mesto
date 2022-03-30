@@ -18,63 +18,63 @@
 
         <section class="profile">
             <div class="profile__item">
-                <img class="avatar" src="./image/JakIvCusto.jpg" alt="Фото Жак-Ив Кусто">
-                <div class="profile-info">
-                    <div class="profile-info__item">
-                        <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-                        <button class="edit-button">
-                            <img class="edit-button__icon" src="./image/button-edit.svg" alt="Кнопка редактирования">
+                <img class="profile__avatar" src="./image/JakIvCusto.jpg" alt="Фото Жак-Ив Кусто">
+                <div class="profile__info">
+                    <div class="profile__info-item">
+                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button">
+                            <img class="profile__edit-icon" src="./image/button-edit.svg" alt="Кнопка редактирования">
                         </button>
                     </div>
-                    <p class="profile-info__about">Исследователь океана</p>
+                    <p class="profile__info-about">Исследователь океана</p>
                 </div>
             </div>
-            <button class="add-button">
-                <img src="./image/add-button.svg" alt="Кнопка добавления">
+            <button class="profile__add-button" type="button">
+                <img class="profile__add-image" src="./image/add-button.svg" alt="Кнопка добавления">
             </button>
         </section>
 
         <ul class="element">
             <li>
-                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Карачаевск">
+                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Старинная заброшенная часовня в горах посреди гор покрытых лесом">
                 <div class="element__item">
                     <h2 class="element__title">Карачаевск</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
             <li>
-                <img class="element__img" src="./image/Elbrus.jpg" alt="Эльбрус">
+                <img class="element__img" src="./image/Elbrus.jpg" alt="Долина горы Эльбрус в лучах восходящего солнца">
                 <div class="element__item">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
             <li>
-                <img class="element__img" src="./image/Dombai.jpg" alt="Домбай">
+                <img class="element__img" src="./image/Dombai.jpg" alt="Вершина горы Домбай осенью среди лесов в желтых тонах">
                 <div class="element__item">
                     <h2 class="element__title">Домбай</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
             <li>
-                <img class="element__img" src="./image/Elbrus.jpg" alt="Эльбрус">
+                <img class="element__img" src="./image/Elbrus.jpg" alt="Долина горы Эльбрус в лучах восходящего солнца">
                 <div class="element__item">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
             <li>
-                <img class="element__img" src="./image/Dombai.jpg" alt="Домбай">
+                <img class="element__img" src="./image/Dombai.jpg" alt="Вершина горы Домбай осенью среди лесов в желтых тонах">
                 <div class="element__item">
                     <h2 class="element__title">Домбай</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
             <li>
-                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Карачаево-Черкессия">
+                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Старинная заброшенная часовня в горах посреди гор покрытых лесом">
                 <div class="element__item">
                     <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button class="element__like"></button>
+                    <button class="element__like" type="button"></button>
                 </div>
             </li>
         </ul>
@@ -86,11 +86,11 @@
 
     <div class="popup">
         <div class="popup__container">
-            <button class= "popup__close"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
+            <button class= "popup__close" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-                <input class="popup__input-name" type="text" name="name">
-                <input class="popup__input-about" type="text" name="specialization">
+            <form class="popup__form" name="formPopup">
+                <input class="popup__input popup_edit_name" type="text" name="name">
+                <input class="popup__input popup_edit_about" type="text" name="about">
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>

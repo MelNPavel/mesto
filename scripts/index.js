@@ -1,44 +1,32 @@
-let editBtnPopup = document.querySelector ('.edit-button');
+let editBtnPopup = document.querySelector ('.profile__edit-button');
 let popupOpen = document.querySelector ('.popup');
 let closeBtnPopup = document.querySelector ('.popup__close')
-let ProfileName = document.querySelector ('.profile-info__name')
-let ProfileSpec = document.querySelector ('.profile-info__about')
-let inputName = document.querySelector ('.popup__input-name');
-let inputSpec = document.querySelector ('.popup__input-about');
-let submitPopup = document.querySelector ('.popup__button')
-
+let profileName = document.querySelector ('.profile__info-name')
+let profileSpec = document.querySelector ('.profile__info-about')
+let inputName = document.querySelector ('.popup_edit_name');
+let inputSpec = document.querySelector ('.popup_edit_about');
+let formElement = document.querySelector ('.popup__form');
 
 function togglePopup () {
     popupOpen.classList.toggle ('popup_opened');
-    inputName.value = ProfileName.textContent;
-    inputSpec.value = ProfileSpec.textContent;
+    inputName.value = profileName.textContent;
+    inputSpec.value = profileSpec.textContent;
 }
-editBtnPopup.addEventListener ('click', togglePopup);
-closeBtnPopup.addEventListener ('click', togglePopup);
 
-
-function clickOverlay (event) {
-    if (event.target === event.currentTarget) {
-        togglePopup ();
-    }
-}
-popupOpen.addEventListener ('click', clickOverlay);
-
-
-let formElement = document.querySelector ('.popup__form');
 function formSubmitHandler (evt) {
     evt.preventDefault();
-    let nameInput = document.querySelector ('.popup__input-name');
-    let jobInput = document.querySelector ('.popup__input-about');
-    ProfileName.textContent = nameInput.value;
-    ProfileSpec.textContent = jobInput.value;
+    profileName.textContent = inputName.value;
+    profileSpec.textContent = inputSpec.value;
     togglePopup ();
 }
+
+editBtnPopup.addEventListener ('click', togglePopup);
+closeBtnPopup.addEventListener ('click', togglePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
-
-let like = document.querySelector('.element__like');
-function likeBlack () {
-    like.classList.toggle ('element__like_black');
-}
-like.addEventListener('click', likeBlack);
+// function clickOverlay (event) {
+//     if (event.target === event.currentTarget) {
+//         togglePopup ();
+//     }
+// }
+// popupOpen.addEventListener ('click', clickOverlay);

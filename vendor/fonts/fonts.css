@@ -9,8 +9,8 @@
 
   @font-face {
     font-family: "Inter";
-    font-style: medium;
-    font-weight: 600;
+    font-style: normal;
+    font-weight: 500;
     src: local("Inter"),
         url("./inter/Inter-Medium.woff2") format("woff2"),
         url("./inter/Inter-Medium.woff") format("woff");
@@ -18,7 +18,7 @@
 
   @font-face {
     font-family: "Inter";
-    font-style: bold;
+    font-style: normal;
     font-weight: 900;
     src: local("Inter"),
         url("./inter/Inter-Black.woff2") format("woff2"),
