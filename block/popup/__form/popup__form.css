@@ -11,11 +11,9 @@
     color: #000000;
 }
 
-
 @media screen and (max-width: 545px) {
     .popup__form {
         margin-top: 66px;
         max-width: calc(100% - (22px * 2)); 
     }
 }
-
