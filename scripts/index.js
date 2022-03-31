@@ -3,8 +3,8 @@ let popupOpen = document.querySelector ('.popup');
 let closeBtnPopup = document.querySelector ('.popup__close')
 let profileName = document.querySelector ('.profile__info-name')
 let profileSpec = document.querySelector ('.profile__info-about')
-let inputName = document.querySelector ('.popup__input_name');
-let inputSpec = document.querySelector ('.popup__input_about');
+let inputName = document.querySelector ('.popup__input_type_name');
+let inputSpec = document.querySelector ('.popup__input_type_about');
 let formElement = document.querySelector ('.popup__form');
 
 function togglePopup () {
