@@ -9,6 +9,7 @@
     color: #FFFFFF;
     background-color: #000;
     padding: 0;
+    margin-top: 20px;
     transition: opacity .4s ease;
     cursor: pointer;
     border: 0;

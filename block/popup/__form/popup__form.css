@@ -1,6 +1,7 @@
 .popup__form{
-    max-width: calc(100% - (36px * 2));
-    margin: 39px auto;
+    max-width: calc(100% - (34px * 2));
+    margin: 48px auto 0;
+    gap: 27px;
     display: flex;
     flex-direction: column;
     justify-content: center;
