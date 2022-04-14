@@ -26,6 +26,9 @@
 @import url(../block/element/__item/element__item.css);
 @import url(../block/element/__like/element__like.css);
 @import url(../block/element/__like/_black/element__like_black.css);
+@import url(../block/element/__img-remove/element__img-remove.css);
+@import url(../block/element/__card-remove/element__card-remove.css);
+@import url(../block/element/__card/element__card.css);
 @import url(../block/footer/footer.css);
 
 @import url(../block/copyright/copyright.css);

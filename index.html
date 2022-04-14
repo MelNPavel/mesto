@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Павел Мельников">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
-    <meta name="author" content="Павел Мельников">
+    <script defer src="./scripts/index.js"></script>
     <title>Место</title>
 </head>
 <body class="page">
@@ -35,48 +36,7 @@
         </section>
 
         <ul class="element">
-            <li>
-                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Старинная заброшенная часовня в горах посреди гор покрытых лесом">
-                <div class="element__item">
-                    <h2 class="element__title">Карачаевск</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
-            <li>
-                <img class="element__img" src="./image/Elbrus.jpg" alt="Долина горы Эльбрус в лучах восходящего солнца">
-                <div class="element__item">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
-            <li>
-                <img class="element__img" src="./image/Dombai.jpg" alt="Вершина горы Домбай осенью среди лесов в желтых тонах">
-                <div class="element__item">
-                    <h2 class="element__title">Домбай</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
-            <li>
-                <img class="element__img" src="./image/Elbrus.jpg" alt="Долина горы Эльбрус в лучах восходящего солнца">
-                <div class="element__item">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
-            <li>
-                <img class="element__img" src="./image/Dombai.jpg" alt="Вершина горы Домбай осенью среди лесов в желтых тонах">
-                <div class="element__item">
-                    <h2 class="element__title">Домбай</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
-            <li>
-                <img class="element__img" src="./image/Karachaevsk.jpg" alt="Старинная заброшенная часовня в горах посреди гор покрытых лесом">
-                <div class="element__item">
-                    <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </li>
+
         </ul>
     </main>
 
@@ -84,17 +44,48 @@
         <p class="copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <template class="element__template">
+        <li class="element__card">
+            <img class="element__img" src="" alt="">
+            <button class="element__card-remove" type="button"></button>
+            <div class="element__item">
+                <h2 class="element__title"></h2>
+                <button class="element__like" type="button"></button>
+            </div>
+        </li>
+    </template>
+
+    <div class="popup popup__edit">
         <div class="popup__container">
-            <button class= "popup__close" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
+            <button class= "popup__close popup__close_edit_type" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="formPopup">
+            <form class="popup__form popup__form_edit_type" name="formPopup">
                 <input class="popup__input popup__input_type_name" type="text" name="name">
                 <input class="popup__input popup__input_type_about" type="text" name="about">
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
-    <script src="./scripts/index.js"></script>
+
+    <div class="popup popup__add">
+        <div class="popup__container">
+            <button class= "popup__close popup__close_add_type" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
+            <h2 class="popup__title popup__title_type_add">Новое место</h2>
+            <form class="popup__form popup__form_add_type" name="formPopup">
+                <input class="popup__input popup__input_type_title" type="text" name="name" placeholder="Название">
+                <input class="popup__input popup__input_type_image" type="text" name="about" placeholder="Ссылка на картинку">
+                <button class="popup__button popup__button_place_add" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup__image">
+        <div class="popup__container">
+            <button class= "popup__close popup__close_place_foto" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
+            <img class="popup__foto" src="" alt="">
+            <h2 class="popup__title popup__title_place_foto">Новое место</h2>
+        </div>
+    </div>
+
 </body>
 </html>

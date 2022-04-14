@@ -1,5 +1,11 @@
 .element__img{
-    max-width: 100%;
+    max-height: 282px;
+    min-height: 282px;
+    max-width: 282px;
+    width: 100%;
+    top: 20px;
+    right: 20px;
     display: block;
     border-radius: 10px 10px 0 0;
+    object-fit: cover;
 }
