@@ -1,4 +1,3 @@
-let popup = document.querySelector ('.popup');
 let popupImage = document.querySelector('.popup__image');
 let popupFoto = document.querySelector('.popup__foto');
 
@@ -78,18 +77,13 @@ function getElement(item) {
     removeButton.addEventListener('click', removeHandler);
     likeButton.addEventListener('click', likeHandler);
     elementImg.addEventListener('click', openLargeImg);
-    
+
     function openLargeImg() {
       popupFoto.src = imageCard.src;
       popupFoto.alt = imageCard.alt;
       popupTitleFoto.textContent = title.textContent;
-
-      // imageCard.setAttribute('alt', item.name);
-      // titleCard.textContent = item.name;
-      // console.log('hello world');
       toggleImgPopup();
     }
-    
     return clonElementTemplate;
 }
 
