@@ -76,18 +76,16 @@ function getElement(item) {
     imageCard.setAttribute ('alt', item.name);
     removeButton.addEventListener('click', removeHandler);
     likeButton.addEventListener('click', likeHandler);
-    elementImg.addEventListener('click', openLargeImg);
-
-    function openLargeImg() {
-      popupFoto.src = imageCard.src;
-      popupFoto.alt = imageCard.alt;
-      popupTitleFoto.textContent = title.textContent;
-      toggleImgPopup();
-    }
+    elementImg.addEventListener('click', () => openLargeImg(item.name, item.link));
     return clonElementTemplate;
 }
 
-
+function openLargeImg(name, link) {
+  popupFoto.src = link;
+  popupFoto.alt = name;
+  popupTitleFoto.textContent = name;
+  toggleImgPopup();
+}
 
 function toggleImgPopup () {
   popupImage.classList.toggle ('popup_opened');
