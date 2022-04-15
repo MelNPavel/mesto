@@ -71,8 +71,7 @@ function getElement(item) {
     imageCard.setAttribute ('alt', item.name);
     removeButton.addEventListener('click', removeHandler);
     likeButton.addEventListener('click', likeHandler);
-    elementImg.addEventListener('click', openLargeImg);
-
+    // elementImg.addEventListener('click', openLargeImg);
     return clonElementTemplate;
 }
 
