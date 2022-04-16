@@ -1,9 +1,9 @@
-let popupImage = document.querySelector('.popup__image');
+let popupImage = document.querySelector('.popup__image_place_background');
 let popupFoto = document.querySelector('.popup__foto');
 let popupTitleFoto = document.querySelector('.popup__foto-name');
 
 let popupEditBtn = document.querySelector ('.profile__edit-button');
-let popupEditOpen = document.querySelector ('.popup__edit');
+let popupEditOpen = document.querySelector ('.popup__edit_place_profile');
 
 let popupCloseEdit = document.querySelector ('.popup__close_edit_type');
 let popupCloseAdd = document.querySelector ('.popup__close_add_type');
@@ -21,7 +21,7 @@ let formAddElement = document.querySelector ('.popup__form_add_type');
 let buttonAddCard = document.querySelector('.popup__button_place_add');
 
 let addBtnPopup = document.querySelector ('.profile__add-button');
-let popupAddOpen = document.querySelector ('.popup__add');
+let popupAddOpen = document.querySelector ('.popup__add_place_card');
 
 const template = document.querySelector ('.element__template');
 const cards = document.querySelector ('.element');
