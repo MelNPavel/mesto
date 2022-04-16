@@ -1,14 +1,12 @@
 let popupImage = document.querySelector('.popup__image');
 let popupFoto = document.querySelector('.popup__foto');
-
-
 let popupTitleFoto = document.querySelector('.popup__foto-name');
 
-let editBtnPopup = document.querySelector ('.profile__edit-button');
+let popupEditBtn = document.querySelector ('.profile__edit-button');
 let popupEditOpen = document.querySelector ('.popup__edit');
 
-let closeEditPopup = document.querySelector ('.popup__close_edit_type');
-let closeAddPopup = document.querySelector ('.popup__close_add_type');
+let popupCloseEdit = document.querySelector ('.popup__close_edit_type');
+let popupCloseAdd = document.querySelector ('.popup__close_add_type');
 let imgClosePopup = document.querySelector('.popup__close_place_foto');
 
 let profileName = document.querySelector ('.profile__info-name');
@@ -24,12 +22,6 @@ let buttonAddCard = document.querySelector('.popup__button_place_add');
 
 let addBtnPopup = document.querySelector ('.profile__add-button');
 let popupAddOpen = document.querySelector ('.popup__add');
-
-let elementLike = document.querySelector ('.element__like');
-
-const imageCard = document.querySelector('.element__img');
-const titleCard = document.querySelector('.element__title');
-
 
 const template = document.querySelector ('.element__template');
 const cards = document.querySelector ('.element');
@@ -127,12 +119,11 @@ function handleCardAdd (evt) {
   cards.prepend(cardAddItem);
 }
 
-
 imgClosePopup.addEventListener('click', toggleImgPopup);
 addBtnPopup.addEventListener('click', toggleAddPopup);
-editBtnPopup.addEventListener('click', toggleEditPopup);
-closeEditPopup.addEventListener('click', toggleEditPopup);
-closeAddPopup.addEventListener('click', toggleAddPopup);
+popupEditBtn.addEventListener('click', toggleEditPopup);
+popupCloseEdit.addEventListener('click', toggleEditPopup);
+popupCloseAdd.addEventListener('click', toggleAddPopup);
 formEditElement.addEventListener('submit', editProfileHandler);
 formAddElement.addEventListener('submit', handleCardAdd);
 buttonAddCard.addEventListener('click', toggleAddPopup);
@@ -140,7 +131,7 @@ buttonAddCard.addEventListener('click', toggleAddPopup);
 cardCheck();
 
 
-
+// let elementLike = document.querySelector ('.element__like');
 // function likeBlack(evt){
 // evt.target.elementLike.classList.toggle ('.element__like_black');
 // };

@@ -12,7 +12,7 @@
     transition: opacity .4s ease;
     background-color: transparent;
     margin-left: 20px;
-}    
+}
 
 .element__card-remove:hover{
     opacity: .4;
