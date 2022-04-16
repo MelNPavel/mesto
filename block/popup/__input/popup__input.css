@@ -1,10 +1,6 @@
 .popup__input{
     width: 100%;
-<<<<<<< HEAD
-    padding-bottom: 10px;
-=======
     padding-bottom: 9px;
->>>>>>> feature/load6cards
     outline: none;
     border: 0;
     border-bottom: 1px solid rgba(0,0,0,.2);

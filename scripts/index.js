@@ -1,7 +1,8 @@
 let popupImage = document.querySelector('.popup__image');
 let popupFoto = document.querySelector('.popup__foto');
 
-let popupTitleFoto = document.querySelector('.popup__title_place_foto');
+
+let popupTitleFoto = document.querySelector('.popup__foto-name');
 
 let editBtnPopup = document.querySelector ('.profile__edit-button');
 let popupEditOpen = document.querySelector ('.popup__edit');
