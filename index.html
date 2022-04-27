@@ -6,7 +6,10 @@
     <meta name="author" content="Павел Мельников">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <script defer src="./scripts/initialCards.js"></script>
     <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
+
     <title>Место</title>
 </head>
 <body class="page">
@@ -59,9 +62,27 @@
         <div class="popup__container">
             <button class= "popup__close popup__close_edit_type" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_edit_type" name="formPopup">
-                <input class="popup__input popup__input_type_name" type="text" name="name">
-                <input class="popup__input popup__input_type_about" type="text" name="about">
+            <form class="popup__form popup__form_edit_type" name="formPopupEdit" novalidate>
+                <input
+                id="type-name"
+                class="popup__input popup__input_type_name"
+                type="text"
+                name="nameProfile"
+                minlength="2"
+                maxlength="40"
+                required
+                >
+                <span class="error" id=type-name-error></span>
+                <input 
+                id="type-about"
+                class="popup__input popup__input_type_about" 
+                type="text" 
+                name="aboutProfile" 
+                minlength="2"
+                maxlength="400"
+                required
+                >
+                <span class="error" id="type-about-error"></span>
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
@@ -71,9 +92,27 @@
         <div class="popup__container">
             <button class= "popup__close popup__close_add_type" type="button"><img class="popup__close-img"  src="./image/Close-Icon.svg" alt="закрытие всплывающего окна"></button>
             <h2 class="popup__title popup__title_type_add">Новое место</h2>
-            <form class="popup__form popup__form_add_type" name="formPopup">
-                <input class="popup__input popup__input_type_title" type="text" name="name" placeholder="Название">
-                <input class="popup__input popup__input_type_image" type="text" name="about" placeholder="Ссылка на картинку">
+            <form class="popup__form popup__form_add_type" name="formPopupAdd" novalidate>
+                <input
+                id="type-title"
+                class="popup__input popup__input_type_title" 
+                type="text" 
+                name="nameCard" 
+                placeholder="Название" 
+                required
+                minlength="2"
+                maxlength="30"
+                >
+                <span class="error" id="type-title-error"></span>
+                <input
+                id="type-image"
+                class="popup__input popup__input_type_image" 
+                type="url" 
+                name="linkCard" 
+                placeholder="Ссылка на картинку" 
+                required
+                >
+                <span class="error" id="type-image-error"></span>
                 <button class="popup__button popup__button_place_add" type="submit">Создать</button>
             </form>
         </div>
