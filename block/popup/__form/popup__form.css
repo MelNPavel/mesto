@@ -1,11 +1,5 @@
 .popup__form{
-    max-width: calc(100% - (35px * 2));
-    margin: 47px auto 0;
-    gap: 29px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 45px auto 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -15,7 +9,5 @@
 @media screen and (max-width: 545px) {
     .popup__form {
         margin-top: 75px;
-        max-width: calc(100% - (22px * 2));
-        gap: 29px;
     }
 }

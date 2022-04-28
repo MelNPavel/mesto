@@ -1,4 +1,7 @@
 .error{
+    display: block;
+    padding-top: 4px;
+    min-height: 30px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
