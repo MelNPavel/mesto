@@ -20,7 +20,7 @@ function enableValidation ({formSelector, inputType, ...config}){
 
 
 function toggleButton (formElement, config) { 
-  const button = document.querySelector(config.buttonSelector); 
+  const button = formElement.querySelector(config.buttonSelector); 
   button.disabled = !formElement.checkValidity(); 
   button.classList.toggle(config.inactiveButtonClass, !formElement.checkValidity()); 
 } 

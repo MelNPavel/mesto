@@ -111,6 +111,7 @@ function editProfileHandler (evt) {
 function openHandleCardAdd (){
   formAddElement.reset();
   openPopup(popupAddOpen);
+  buttonAddCard.classList.add('popup__button_disable');
 }
 
 function handleCardAdd (evt) {
