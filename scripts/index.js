@@ -44,10 +44,8 @@ function closePopup(popup) {
 }
 
 function clickOverlay (evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  const popupCloseBtn = popupOpened.querySelector('.popup__close');
-  if (evt.target === evt.currentTarget || evt.target === popupCloseBtn) {
-    closePopup(popupOpened);
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+    closePopup(evt.currentTarget);
     }
 }
 
