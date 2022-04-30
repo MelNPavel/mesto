@@ -109,15 +109,15 @@ function editProfileHandler (evt) {
 }
 
 function openHandleCardAdd (){
-  formAddElement.reset();
   openPopup(popupAddOpen);
-  buttonAddCard.classList.add('popup__button_disable');
+  toggleButton(formAddElement, config);
 }
 
 function handleCardAdd (evt) {
   evt.preventDefault();
   const cardAddItem = getElement({name: titleInput.value, link: imageInput.value});
   cardsContainer.prepend(cardAddItem);
+  formAddElement.reset();
 }
 
 imgClosePopup.addEventListener('click', () => closePopup(popupImage));
