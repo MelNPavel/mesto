@@ -98,6 +98,8 @@ function removeHandler(evt){
 function openProfileHandler() {
     nameInput.value = profileName.textContent;
     specializationInput.value = profileSpec.textContent;
+    hideInputError (nameInput, config);
+    hideInputError (specializationInput, config);
     openPopup(popupEdit);
 }
 
@@ -110,6 +112,8 @@ function editProfileHandler (evt) {
 
 function openHandleCardAdd (){
   openPopup(popupAddOpen);
+  hideInputError (titleInput, config);
+  hideInputError (imageInput, config);
   toggleButton(formAddElement, config);
 }
 
