@@ -13,28 +13,27 @@ function enableValidation ({formSelector, inputType, ...config}){
 
   formAll.forEach((formElement) => {
   const inputs = formElement.querySelectorAll(inputType);
-
+  const button = formElement.querySelector(config.buttonSelector);
   inputs.forEach((inputElement) => {
-      inputElement.addEventListener('input', () => handleInputForm(inputElement, formElement, config));
+      inputElement.addEventListener('input', () => handleInputForm(inputElement, formElement, button, config));
   })
-  toggleButton(formElement, config);
+  toggleButton(formElement, button, config);
 })};
 
 
-function toggleButton (formElement, config) {
-  const button = formElement.querySelector(config.buttonSelector);
+function toggleButton (formElement, button, config) {
   button.disabled = !formElement.checkValidity();
   button.classList.toggle(config.inactiveButtonClass, !formElement.checkValidity());
 }
 
-function handleInputForm(inputElement, formElement, config){
+function handleInputForm(inputElement, formElement, button, config){
 
   if (inputElement.validity.valid){
     hideInputError (inputElement, config)
   } else {
     showInputError (inputElement, config)
   }
-  toggleButton (formElement, config);
+  toggleButton (formElement, button, config);
 }
 
 

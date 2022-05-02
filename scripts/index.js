@@ -111,10 +111,10 @@ function editProfileHandler (evt) {
 }
 
 function openHandleCardAdd (){
-  openPopup(popupAddOpen);
   hideInputError (titleInput, config);
   hideInputError (imageInput, config);
-  toggleButton(formAddElement, config);
+  toggleButton(formAddElement, buttonAddCard, config);
+  openPopup(popupAddOpen);
 }
 
 function handleCardAdd (evt) {
