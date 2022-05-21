@@ -1,46 +1,55 @@
 class FormValidator {
-    constructor(config, formItem) {
+    constructor(config, formElement, button) {
         this._formSelector = config.formSelector;
         this._inputType = config.inputType;
         this._buttonSelector = config.buttonSelector;
-        
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
-        this._errorClass = config.errorClass;
-        this._formItem = formItem;
-
+        this._formElement = formElement;
+        this._button = button;
+        this._inputItem = this._formElement.querySelectorAll(this._inputType);
     }
 
-_toggleButton (formElement, button, config) {
-  button.disabled = !formElement.checkValidity();
-  button.classList.toggle(this._inactiveButtonClass, !formElement.checkValidity());
-}
+  enableValidation () {
+  this._inputItem.forEach((_inputElement) => {
+    _inputElement.addEventListener('input', () => this._handleInputForm(_inputElement));
+ });
+  this._toggleButton();
+};
 
-_handleInputForm(inputElement, formElement, button, config){
+_toggleButton (_formElement, _button) {
+  this._button.disabled = !this._formElement.checkValidity();
+  this._button.classList.toggle(this._inactiveButtonClass, !this._formElement.checkValidity());
+};
 
-  if (inputElement.validity.valid){
-    hideInputError (inputElement, config)
+_handleInputForm(_inputElement, _formElement, button){
+  if (_inputElement.validity.valid){
+    this._hideInputError (_inputElement)
   } else {
-    showInputError (inputElement, config)
+    this._showInputError (_inputElement)
   }
-  toggleButton (formElement, button, config);
+  this._toggleButton (_formElement, button);
 }
 
 
-_showInputError (inputElement, config){
-  const errorNode = document.querySelector(`#${inputElement.id}-error`);
-  errorNode.textContent = inputElement.validationMessage;
-  inputElement.classList.add(config.inputErrorClass);
+_showInputError (_inputElement){
+  const errorNode = document.querySelector(`#${_inputElement.id}-error`);
+  errorNode.textContent = _inputElement.validationMessage;
+  _inputElement.classList.add(this._inputErrorClass);
 };
 
 
-_hideInputError (inputElement, config) {
-    const errorNode = document.querySelector(`#${inputElement.id}-error`);
+_hideInputError (_inputElement) {
+    const errorNode = document.querySelector(`#${_inputElement.id}-error`);
     errorNode.textContent = '';
-    inputElement.classList.remove(config.inputErrorClass);
+    _inputElement.classList.remove(this._inputErrorClass);
 };
+
+resetInputError(formElement, button) {
+  this._inputItem.forEach((_inputElement) => {
+    this._hideInputError(_inputElement)});
+  this._toggleButton(formElement, button);
+};
+
 }
-
-// enableValidation(config);
-
 export default FormValidator;
