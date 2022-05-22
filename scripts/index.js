@@ -2,6 +2,7 @@ import Card from './Card.js';
 import initialCards from './initialCards.js';
 import FormValidator from './FormValidator.js';
 
+const template = document.querySelector ('.element__template');
 const cardsContainer = document.querySelector ('.element');
 const popupImage = document.querySelector('.popup_image_background');
 
@@ -29,6 +30,9 @@ const popupAddOpen = document.querySelector ('.popup_add_place');
 const titleInput = document.querySelector ('.popup__input_type_title');
 const imageInput = document.querySelector ('.popup__input_type_image');
 
+const popupFoto = document.querySelector('.popup__foto');
+    const popupTitleFoto = document.querySelector('.popup__foto-name');
+
 const config = {
     formSelector: '.popup__form',
     inputType: '.popup__input',
@@ -38,28 +42,33 @@ const config = {
     errorClass: 'popup__error_visible',
 };
 
-const inputOutEnableValidation = {};
+const formValidators = {};
+
+function createCard (item) {
+const cards = new Card (item, '.element__template', openLargeImg);
+return cards.generate();
+};
+
 
 initialCards.forEach((item) => {
-    const cards = new Card (item.name, item.link, () => openLargeImg(item.name, item.link));
-    const cardElement = cards.generate();
-    cardsContainer.append(cardElement);
+    // createCard(item, '.element__template', openLargeImg);
+    cardsContainer.append(createCard(item));
 });
 
 function enableValidation (config){
   const formAll = Array.from (document.querySelectorAll(config.formSelector));
   formAll.forEach((formElement) => {
     const button = formElement.querySelector(config.buttonSelector);
-    const inputs = new FormValidator(config, formElement, button);
+    const formValidator = new FormValidator(config, formElement, button);
   const name = formElement.getAttribute('name');
-  inputOutEnableValidation [name] = inputs;
-  inputs.enableValidation(config, formElement);
+  formValidators [name] = formValidator;
+  formValidator.enableValidation(config, formElement);
   })
 };
 
 function openPopup(popup) {
     document.addEventListener('keydown', closeBtnEsc);
-    popup.addEventListener('click', clickOverlay);
+    popup.addEventListener('mousedown', clickOverlay);
     popup.classList.add('popup_opened');
 }
 
@@ -83,8 +92,6 @@ function closeBtnEsc(evt) {
 }
 
 function openLargeImg(name, link) {
-    const popupFoto = document.querySelector('.popup__foto');
-    const popupTitleFoto = document.querySelector('.popup__foto-name');
     popupFoto.src = link;
     popupFoto.alt = name;
     popupTitleFoto.textContent = name;
@@ -94,7 +101,7 @@ function openLargeImg(name, link) {
 function openProfileHandler() {
     nameInput.value = profileName.textContent;
     specializationInput.value = profileSpec.textContent;
-    inputOutEnableValidation['formPopupEdit'].resetInputError(formEditElement);
+    formValidators['formPopupEdit'].resetInputError(formEditElement);
     openPopup(popupEdit);
 }
 
@@ -107,16 +114,18 @@ function editProfileHandler (evt) {
 
 function openHandleCardAdd (){
     formAddElement.reset();
-    inputOutEnableValidation['formPopupAdd'].resetInputError();
+    formValidators['formPopupAdd'].resetInputError();
     openPopup(popupAddOpen);
 }
 
 
 function handleCardAdd (evt) {
     evt.preventDefault();
-    const cardAddItem = new Card (titleInput.value, imageInput.value, openLargeImg);
-    const cardElement = cardAddItem.generate();
-    cardsContainer.prepend(cardElement);
+    const cardAddHandler = {
+        name: titleInput.value,
+        link: imageInput.value
+      };
+    cardsContainer.prepend(createCard(cardAddHandler));
     }
 
 enableValidation(config);
@@ -129,4 +138,3 @@ popupCloseAdd.addEventListener('click', () => closePopup(popupAddOpen));
 formEditElement.addEventListener('submit', editProfileHandler);
 formAddElement.addEventListener('submit', handleCardAdd);
 buttonAddCard.addEventListener('click' , () => closePopup(popupAddOpen));
-

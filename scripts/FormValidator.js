@@ -6,12 +6,12 @@ class FormValidator {
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
         this._formElement = formElement;
-        this._button = button;
-        this._inputItem = this._formElement.querySelectorAll(this._inputType);
+        this._button = formElement.querySelector(config.buttonSelector);
+        this._inputList = this._formElement.querySelectorAll(this._inputType);
     }
 
   enableValidation () {
-  this._inputItem.forEach((_inputElement) => {
+  this._inputList.forEach((_inputElement) => {
     _inputElement.addEventListener('input', () => this._handleInputForm(_inputElement));
  });
   this._toggleButton();
@@ -22,13 +22,13 @@ _toggleButton (_formElement, _button) {
   this._button.classList.toggle(this._inactiveButtonClass, !this._formElement.checkValidity());
 };
 
-_handleInputForm(_inputElement, _formElement, button){
+_handleInputForm(_inputElement, _formElement, _button){
   if (_inputElement.validity.valid){
     this._hideInputError (_inputElement)
   } else {
     this._showInputError (_inputElement)
   }
-  this._toggleButton (_formElement, button);
+  this._toggleButton (_formElement, _button);
 }
 
 
@@ -45,10 +45,10 @@ _hideInputError (_inputElement) {
     _inputElement.classList.remove(this._inputErrorClass);
 };
 
-resetInputError(formElement, button) {
-  this._inputItem.forEach((_inputElement) => {
+resetInputError(formElement, _button) {
+  this._inputList.forEach((_inputElement) => {
     this._hideInputError(_inputElement)});
-  this._toggleButton(formElement, button);
+  this._toggleButton(formElement, _button);
 };
 
 }

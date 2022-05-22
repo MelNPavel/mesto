@@ -1,13 +1,14 @@
 class Card {
-	constructor(name, link, openLargeImg) {
-		this._name = name;
-		this._link = link;
+	constructor(item, template, openLargeImg) {
+		this._name = item.name;
+		this._link = item.link;
+    this._template = template;
     this._openLargeImg = openLargeImg;
 	};
 
   _getElement() {
     const cardElement = document
-      .querySelector('.element__template')
+      .querySelector(this._template)
       .content
       .querySelector('.element__card')
       .cloneNode(true);
@@ -18,11 +19,11 @@ class Card {
 _setEventListeners() {
   this._elementLike = this._element.querySelector('.element__like')
   this._elementLike.addEventListener('click', () => {
-      this._handleLikeClick()});
-    this._element.querySelector('.element__card-remove').addEventListener('click', () => {
-      this._handleRemoveCard()});
-    this._elementImg.addEventListener('click', () => 
-      this._openLargeImg(this._name, this._link));
+    this._handleLikeClick()
+    });
+  this._element.querySelector('.element__card-remove').addEventListener('click', () => {this._handleRemoveCard()
+    });
+  this._elementImg.addEventListener('click', () => this._openLargeImg(this._name, this._link));
   };
 
   _handleLikeClick() {
@@ -31,6 +32,7 @@ _setEventListeners() {
 
   _handleRemoveCard() {
    this._element.remove();
+   this._element = '';
   };
 
   generate() {
