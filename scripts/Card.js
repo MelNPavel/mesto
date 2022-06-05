@@ -4,7 +4,8 @@ class Card {
 		this._link = item.link;
     this._template = template;
     this._openLargeImg = openLargeImg;
-	};
+    this._largeImg = document.querySelector('.popup_image_background');
+  	};
 
   _getElement() {
     const cardElement = document
@@ -23,7 +24,7 @@ _setEventListeners() {
     });
   this._element.querySelector('.element__card-remove').addEventListener('click', () => {this._handleRemoveCard()
     });
-  this._elementImg.addEventListener('click', () => this._openLargeImg(this._name, this._link));
+  this._elementImg.addEventListener('click', () => this._openLargeImg(this._largeImg, this._name, this._link));
   };
 
   _handleLikeClick() {
