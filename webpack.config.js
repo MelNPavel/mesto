@@ -12,6 +12,7 @@ module.exports = {
     filename: 'main.js',
     publicPath: '',
   },
+  devtool: 'eval-source-map',
   mode: 'development',
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),

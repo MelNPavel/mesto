@@ -1,9 +1,9 @@
-class Card {
-	constructor(item, template, openLargeImg) {
+export default class Card {
+	constructor(item, template, handleCardClick) {
 		this._name = item.name;
 		this._link = item.link;
     this._template = template;
-    this._openLargeImg = openLargeImg;
+    this._handleCardClick = handleCardClick;
     this._largeImg = document.querySelector('.popup_image_background');
   	};
 
@@ -24,7 +24,7 @@ _setEventListeners() {
     });
   this._element.querySelector('.element__card-remove').addEventListener('click', () => {this._handleRemoveCard()
     });
-  this._elementImg.addEventListener('click', () => this._openLargeImg(this._largeImg, this._name, this._link));
+  this._elementImg.addEventListener('click', () => this._handleCardClick(this._largeImg, this._name, this._link));
   };
 
   _handleLikeClick() {
@@ -46,5 +46,3 @@ _setEventListeners() {
     return this._element;
   }
 }
-
-export default Card;
