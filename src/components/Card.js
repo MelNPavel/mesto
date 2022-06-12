@@ -4,8 +4,7 @@ export default class Card {
 		this._link = item.link;
     this._template = template;
     this._handleCardClick = handleCardClick;
-    this._largeImg = document.querySelector('.popup_image_background');
-  	};
+  };
 
   _getElement() {
     const cardElement = document
@@ -24,7 +23,7 @@ _setEventListeners() {
     });
   this._element.querySelector('.element__card-remove').addEventListener('click', () => {this._handleRemoveCard()
     });
-  this._elementImg.addEventListener('click', () => this._handleCardClick(this._largeImg, this._name, this._link));
+  this._elementImg.addEventListener('click', () => this._handleCardClick(this._name, this._link));
   };
 
   _handleLikeClick() {

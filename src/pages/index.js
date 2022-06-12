@@ -34,26 +34,26 @@ const userData = {
     name: userName,
     about: userAbout
 };
-
-const userHandleData = {
-  name: nameInput,
-  about: specializationInput
-};
-
+const imageLarge = new PopupWithImage(popupImage);
+const userDataInfo = new UserInfo ({name: userData.name, about: userData.about});
 const formValidators = {};
 
-const cardCreate = new Section({
+function createCards (item) {
+  const cards = new Card (item, '.element__template', handleCardClick);
+  const cardsElement = cards.generate();
+  cardsContainerSection.addItem(cardsElement);
+};
+
+const cardsContainerSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    const cards = new Card (item, '.element__template', handleCardClick);
-    const cardsElement = cards.generate();
-    cardCreate.addItem(cardsElement);
-    },
+    createCards (item);
   },
+},
   cardsContainer
 );
 
-cardCreate.createCard();
+cardsContainerSection.renderInitialItems();
 
 const cardAddHandle = new PopupWithForm (popupAddOpen, {
   handleFormSubmit: (item) => {
@@ -62,23 +62,32 @@ const cardAddHandle = new PopupWithForm (popupAddOpen, {
     const cardHandleCreate = new Section({
       items: inputsValue,
       renderer: (item) => {
-        const cards = new Card (item, '.element__template', handleCardClick);
-        const cardsElement = cards.generate();
-        cardCreate.prependItem(cardsElement);
-        },
+        createCards (item);
       },
+    },
       cardsContainer
     );
-    cardHandleCreate.createCard();
+    cardHandleCreate.renderInitialItems();
 }});
 
 function openHandleCardAdd (){
-    formAddElement.reset();
-    formValidators['formPopupAdd'].resetInputError();
-    const popupOpen = new Popup(popupAddOpen);
-    popupOpen.open();
-    cardAddHandle.setEventListeners();
+  formAddElement.reset();
+  formValidators['formPopupAdd'].resetInputError();
+  cardAddHandle.open();
 }
+
+const profileAddHandle = new PopupWithForm (popupEdit, {
+  handleFormSubmit: (item) => {
+    const inputsUserHandle = {nameProfile: item.nameProfile, aboutProfile: item.aboutProfile};
+    userDataInfo.setUserInfo(inputsUserHandle);
+  }});
+
+function openProfileHandler() {
+    const userGetInfo = userDataInfo.getUserInfo();
+    nameInput.value = userGetInfo.name;
+    specializationInput.value = userGetInfo.about;
+    profileAddHandle.open();
+};
 
 function enableValidation (config){
     const formAll = Array.from (document.querySelectorAll(config.formSelector));
@@ -91,36 +100,19 @@ function enableValidation (config){
     });
 };
 
-function handleCardClick (popupImage, name, link) {
-    const imageLarge = new PopupWithImage(popupImage, name, link);
-    imageLarge.open();
+function handleCardClick (name, link) {
+    imageLarge.open(name, link);
 }
-
-const profileAddHandle = new PopupWithForm (popupEdit, {
-  handleFormSubmit: (item) => {
-    const inputsUserHandle = {nameProfile: item.nameProfile, aboutProfile: item.aboutProfile};
-    const userDataInfo = new UserInfo ({name: userData.name, about: userData.about});
-    userDataInfo.setUserInfo(inputsUserHandle);
-  }});
-
-function openProfileHandler() {
-    const userDataInfo = new UserInfo({name: userData.name, about: userData.about});
-    const userGetInfo = userDataInfo.getUserInfo();
-    nameInput.value = userGetInfo.name;
-    specializationInput.value = userGetInfo.about;
-    profileAddHandle.setEventListeners();
-    const popupOpen = new Popup(popupEdit);
-    popupOpen.open();
-    popupOpen.setEventListeners();
-};
 
 enableValidation(config);
 
 imgClosePopup.addEventListener('click', () => {
-    const popupClose = new Popup(popupImage);
-    popupClose.close()
+    imageLarge.close()
   }
 );
+
+cardAddHandle.setEventListeners();
+profileAddHandle.setEventListeners();
 
 popupAddBtn.addEventListener('click', openHandleCardAdd);
 popupEditBtn.addEventListener('click', openProfileHandler);

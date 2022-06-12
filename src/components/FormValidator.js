@@ -1,5 +1,5 @@
 class FormValidator {
-    constructor(config, formElement, button) {
+    constructor(config, formElement) {
         this._formSelector = config.formSelector;
         this._inputType = config.inputType;
         this._buttonSelector = config.buttonSelector;

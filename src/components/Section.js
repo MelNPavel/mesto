@@ -5,7 +5,7 @@ export default class Section{
         this._elementTemplate = elementTemplate;
     }
 
-    createCard() {
+    renderInitialItems() {
         this._rendeeredItems.forEach(item => this._renderer(item));
     }
 
