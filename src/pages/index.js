@@ -38,16 +38,17 @@ const imageLarge = new PopupWithImage(popupImage);
 const userDataInfo = new UserInfo ({name: userData.name, about: userData.about});
 const formValidators = {};
 
-function createCards (item) {
+function createCard (item) {
   const cards = new Card (item, '.element__template', handleCardClick);
   const cardsElement = cards.generate();
-  cardsContainerSection.addItem(cardsElement);
+  return cardsElement;
 };
 
 const cardsContainerSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    createCards (item);
+    const card = createCard (item);
+    cardsContainerSection.addItem(card);
   },
 },
   cardsContainer
@@ -55,20 +56,16 @@ const cardsContainerSection = new Section({
 
 cardsContainerSection.renderInitialItems();
 
+
 const cardAddHandle = new PopupWithForm (popupAddOpen, {
   handleFormSubmit: (item) => {
-    const inputsValue = [{name: item.nameCard, link: item.linkCard}];
-
-    const cardHandleCreate = new Section({
-      items: inputsValue,
-      renderer: (item) => {
-        createCards (item);
+    const inputsValue = {name: item.nameCard, link: item.linkCard};
+        const cardHandle = createCard (inputsValue);
+        cardsContainerSection.prependItem(cardHandle);
       },
     },
       cardsContainer
     );
-    cardHandleCreate.renderInitialItems();
-}});
 
 function openHandleCardAdd (){
   formAddElement.reset();
@@ -86,6 +83,7 @@ function openProfileHandler() {
     const userGetInfo = userDataInfo.getUserInfo();
     nameInput.value = userGetInfo.name;
     specializationInput.value = userGetInfo.about;
+    formValidators['formPopupEdit'].resetInputError(formEditElement);
     profileAddHandle.open();
 };
 
