@@ -28,12 +28,22 @@ const config = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible',
 };
-const userName ='.profile__info-name';
-const userAbout ='.profile__info-about';
-const userData = {
-    name: userName,
-    about: userAbout
-};
+// const userName ='.profile__info-name';
+// const userAbout ='.profile__info-about';
+const userData = 
+  fetch ('https://nomoreparties.co/v1/cohort-43/users/me', {
+  headers: {
+    authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  })
+
+
+
+
 const imageLarge = new PopupWithImage(popupImage);
 const userDataInfo = new UserInfo ({name: userData.name, about: userData.about});
 const formValidators = {};
