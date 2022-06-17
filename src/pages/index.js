@@ -8,6 +8,7 @@ import Popup from '../components/Popup.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js'
 
 const cardsContainer = document.querySelector ('.element');
 const popupImage = document.querySelector('.popup_image_background');
