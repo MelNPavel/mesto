@@ -1,22 +1,39 @@
 export default class Api{
-    constructor (url, token) {
+    constructor ({url, headers}) {
         this.url = url,
-        this.token = token
+        this.headers = headers
     }
 
     getTasks (){
         return fetch (this.url, {
-              headers: {
-                authorization: this.token,
-                // 'Content-type': 'application.json'
-              }
+              headers: this.headers
         })
         .then ((res) => {
             if (res.ok) {
                 return res.json();
-            }else{
-                return Promise.reject('Возникла ошибка');
             }
+
+            return Promise.reject('Возникла ошибка');
+        })
+    }
+
+    addTasks ({inputsUserHandle}){
+        const body = {
+            name: inputsUserHandle.nameProfile,
+            about: inputsUserHandle.aboutProfile
+        };
+        
+        return fetch (this.url, {
+              headers: this.headers,
+              method: 'PACH',
+              body: JSON.stringify(body.name, body.about),
+            })
+        .then ((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+
+            return Promise.reject('Возникла ошибка');
         })
     }
 }

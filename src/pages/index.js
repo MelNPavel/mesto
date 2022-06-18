@@ -10,6 +10,16 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js'
 
+const urlApiHandle = 'https://mesto.nomoreparties.co/v1/cohort-43/users/me';
+const urlApi = 'https://nomoreparties.co/v1/cohort-43/users/me';
+// const token = '86b10ee1-81f7-46f9-8c08-51d061f72e78';
+const headersAPi = {
+  'Content-type': 'application.json',
+  authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
+};
+const bodyApiHandle = JSON.stringify({
+  name: 'Marie Skłodowska Curie',
+  about: 'Physicist and Chemist'});
 const cardsContainer = document.querySelector ('.element');
 const popupImage = document.querySelector('.popup_image_background');
 const popupEditBtn = document.querySelector ('.profile__edit-button');
@@ -29,31 +39,27 @@ const config = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible',
 };
-// const userName ='.profile__info-name';
-// const userAbout ='.profile__info-about';
-// const userData = 
-//   fetch ('https://nomoreparties.co/v1/cohort-43/users/me', {
-//   headers: {
-//     authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
-//   }
-// })
-//   .then(res => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   })
-const apiUser = new Api ('https://nomoreparties.co/v1/cohort-43/users/me', {
-    headers: {
-      authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
-    }
+
+// console.log(userData);
+const userAvatar = '.profile__avatar'
+const userName ='.profile__info-name';
+const userAbout ='.profile__info-about';
+const userData = {
+  name: userName,
+  about: userAbout,
+  avatar: userAvatar
+};
+
+const apiUser = new Api ({
+    url: urlApi,
+    headers: headersAPi,
+    body: bodyApiHandle
   }
 )
 
-const userData = {}
-
 apiUser.getTasks()
   .then((tasks) => {
-    // userData = {name: tasks.name, about: tasks.about};
-    console.log(tasks)
+    userDataInfo.setUserInfo({name: tasks.name, about: tasks.about, avatar: tasks.avatar})
   })
   .catch((err) => {
     console.log ('Ошибка' + err)
@@ -62,7 +68,7 @@ apiUser.getTasks()
 
 
 const imageLarge = new PopupWithImage(popupImage);
-const userDataInfo = new UserInfo ({name: userData.name, about: userData.about});
+const userDataInfo = new UserInfo ({name: userData.name, about: userData.about, avatar: userData.avatar});
 const formValidators = {};
 
 function createCard (item) {
@@ -103,7 +109,24 @@ function openHandleCardAdd (){
 const profileAddHandle = new PopupWithForm (popupEdit, {
   handleFormSubmit: (item) => {
     const inputsUserHandle = {nameProfile: item.nameProfile, aboutProfile: item.aboutProfile};
-    userDataInfo.setUserInfo(inputsUserHandle);
+
+    const apiUserHandle = new Api ({
+      url: urlApiHandle,
+      headers: headersAPi,
+      body: bodyApiHandle
+    }
+  )
+
+    apiUserHandle.addTasks({inputsUserHandle})
+  .then ((task) => {
+    userDataInfo.setUserInfo(task)
+  })
+  .catch((err) => {
+    console.log ('Ошибка' + err)
+  })
+    
+  userDataInfo.setUserInfo(inputsUserHandle);
+
   }});
 
 function openProfileHandler() {
