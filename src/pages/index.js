@@ -41,7 +41,7 @@ const config = {
 //   .then((result) => {
 //     console.log(result);
 //   })
-const api = new Api('https://nomoreparties.co/v1/cohort-43/users/me', {
+const apiUser = new Api ('https://nomoreparties.co/v1/cohort-43/users/me', {
     headers: {
       authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
     }
@@ -50,11 +50,14 @@ const api = new Api('https://nomoreparties.co/v1/cohort-43/users/me', {
 
 const userData = {}
 
-api.getTasks()
+apiUser.getTasks()
   .then((tasks) => {
-    userData = {name: tasks.name, about: tasks.about};
+    // userData = {name: tasks.name, about: tasks.about};
+    console.log(tasks)
   })
-  .catch((err))
+  .catch((err) => {
+    console.log ('Ошибка' + err)
+  })
 
 
 

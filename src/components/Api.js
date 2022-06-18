@@ -8,7 +8,7 @@ export default class Api{
         return fetch (this.url, {
               headers: {
                 authorization: this.token,
-                'Content-type': 'application.json'
+                // 'Content-type': 'application.json'
               }
         })
         .then ((res) => {
