@@ -17,9 +17,9 @@ const headersAPi = {
   'Content-type': 'application.json',
   authorization: '86b10ee1-81f7-46f9-8c08-51d061f72e78'
 };
-const bodyApiHandle = JSON.stringify({
-  name: 'Marie Skłodowska Curie',
-  about: 'Physicist and Chemist'});
+// const bodyApiHandle = JSON.stringify({
+//   name: 'Marie Skłodowska Curie',
+//   about: 'Physicist and Chemist'});
 const cardsContainer = document.querySelector ('.element');
 const popupImage = document.querySelector('.popup_image_background');
 const popupEditBtn = document.querySelector ('.profile__edit-button');
@@ -52,8 +52,7 @@ const userData = {
 
 const apiUser = new Api ({
     url: urlApi,
-    headers: headersAPi,
-    body: bodyApiHandle
+    headers: headersAPi
   }
 )
 
@@ -106,28 +105,30 @@ function openHandleCardAdd (){
   cardAddHandle.open();
 }
 
+
+
 const profileAddHandle = new PopupWithForm (popupEdit, {
   handleFormSubmit: (item) => {
-    const inputsUserHandle = {nameProfile: item.nameProfile, aboutProfile: item.aboutProfile};
+    const inputsUserHandle = {name: item.nameProfile, about: item.aboutProfile};
 
-    const apiUserHandle = new Api ({
+  const apiUserHandle = new Api ({
       url: urlApiHandle,
-      headers: headersAPi,
-      body: bodyApiHandle
-    }
-  )
+      headers: headersAPi
+    })
 
-    apiUserHandle.addTasks({inputsUserHandle})
+  apiUserHandle.addTasks({inputsUserHandle})
   .then ((task) => {
-    userDataInfo.setUserInfo(task)
-  })
+      // userDataInfo.setUserInfo(task)
+      console.log(task)
+      })
   .catch((err) => {
-    console.log ('Ошибка' + err)
-  })
-    
-  userDataInfo.setUserInfo(inputsUserHandle);
-
+      console.log ('Ошибка' + err)
+      })
+  // userDataInfo.setUserInfo(inputsUserHandle);
   }});
+
+
+
 
 function openProfileHandler() {
     const userGetInfo = userDataInfo.getUserInfo();
