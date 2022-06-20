@@ -17,7 +17,7 @@
 
         <section class="profile">
             <div class="profile__item">
-                <img class="profile__avatar" img src="" alt="Фото Жак-Ив Кусто">
+                <img class="profile__avatar" img src="21a71a6e1936602e6d36.jpg" alt="Фото Жак-Ив Кусто">
                     <!-- 21a71a6e1936602e6d36.jpg -->
                 <div class="profile__info">
                     <div class="profile__info-item">
@@ -49,7 +49,10 @@
             <button class="element__card-remove" type="button"></button>
             <div class="element__item">
                 <h2 class="element__title"></h2>
+            <div class="element__like-container">
                 <button class="element__like" type="button"></button>
+                <p class="element__like-count">0</p>
+            </div>
             </div>
         </li>
     </template>
@@ -123,6 +126,16 @@
                 <figcaption class="popup__foto-name">Новое место</figcaption>
                 <button class= "popup__close popup__close_place_foto" type="button"><img class="popup__close-img"  img src="039f1f5203f653b4bacd.svg" alt="закрытие всплывающего окна"></button>
             </figure>
+        </div>
+    </div>
+
+    <div class="popup popup__consent_type_consent">
+        <div class="popup__container popup__container_type_consent">
+            <button class= "popup__close popup__close_type_consent" type="button"><img class="popup__close-img" img src="039f1f5203f653b4bacd.svg" alt="закрытие всплывающего окна"></button>
+            <h2 class="popup__title popup__title_type_consent">Вы уверены?</h2>
+            <form class="popup__form popup__form_type_consent" name="formPopupAdd" novalidate>
+                <button class="popup__button popup__button_type_consent" type="submit">да</button>
+            </form>
         </div>
     </div>
 
