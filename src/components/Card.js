@@ -48,13 +48,13 @@ _setEventListeners() {
   checkHandleLike (item) {
     this._elementLike.classList.add('element__like_black');
     this._likeCount.textContent = String(item.likes.length);
-    this.like = item.likes;
+    // this.like = item.likes;
   }
 
   deleteHandleLike (item) {
     this._elementLike.classList.remove('element__like_black');
-    // this._likeCount.textContent = String(item.likes.length);
-    this.like = item.likes;
+    this._likeCount.textContent = String(item.likes.length);
+    // this.like = item.likes;
   }
 
   isLiked = () => this.like.some((item) => item._id === this._idClient);
