@@ -29,11 +29,11 @@
 /*!********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/block/profile/__item/profile__item.css ***!
   \********************************************************************************************************************************************************************/
-.profile__item{align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between}@media screen and (max-width:424px){.profile__item{flex-direction:column}}
+.profile__item{align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;position:relative}@media screen and (max-width:424px){.profile__item{flex-direction:column}}
 /*!************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/block/profile/__avatar/profile__avatar.css ***!
   \************************************************************************************************************************************************************************/
-.profile__avatar{border-radius:50%;margin-right:30px;max-width:120px;min-height:120px;-o-object-fit:cover;object-fit:cover}@media screen and (max-width:424px){.profile__avatar{margin:0 auto 26px}}
+.profile__avatar{background:no-repeat 50%/cover;border-radius:50%;margin-right:30px;min-height:120px;min-width:120px;-o-object-fit:cover;object-fit:cover}.profile__avatar:hover:before{background:rgba(0,0,0,.8) url(a086f758840ae814ecde.svg) no-repeat 50%;opacity:.8}.profile__avatar:before{background-size:26px;content:"";display:block;height:120px;opacity:0;transition:opacity .3s ease;width:120px}@media screen and (max-width:424px){.profile__avatar{margin:0 auto 26px}}
 /*!********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/block/profile/__info/profile__info.css ***!
   \********************************************************************************************************************************************************************/

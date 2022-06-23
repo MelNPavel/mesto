@@ -17,13 +17,15 @@
 
         <section class="profile">
             <div class="profile__item">
-                <img class="profile__avatar" img src="21a71a6e1936602e6d36.jpg" alt="Фото Жак-Ив Кусто">
-                    <!-- 21a71a6e1936602e6d36.jpg -->
+
+                <a class="profile__avatar" href="#" background-image: url()></a>></a>
+<!-- style="background-image: url(https://images.unsplash.com/photo-1649650128361-7084c0ddebd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80)" -->
+                    <!-- img src="#" 21a71a6e1936602e6d36.jpg  -->
                 <div class="profile__info">
                     <div class="profile__info-item">
                         <h1 class="profile__info-name"></h1>
                         <button class="profile__edit-button" type="button">
-                            <img class="profile__edit-icon"  img src="6c7bf05444b9793fdf6e.svg" alt="Кнопка редактирования">
+                            <img class="profile__edit-icon"  img src= "6c7bf05444b9793fdf6e.svg" alt="Кнопка редактирования">
                         </button>
                     </div>
                     <p class="profile__info-about"></p>
@@ -135,6 +137,25 @@
             <h2 class="popup__title popup__title_type_consent">Вы уверены?</h2>
             <form class="popup__form popup__form_type_consent" name="formPopupAdd" novalidate>
                 <button class="popup__button popup__button_type_consent" type="submit">да</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup__avatar_type_avatar">
+        <div class="popup__container popup__container_type_avatar">
+            <button class= "popup__close popup__close_type_avatar" type="button"><img class="popup__close-img" img src="039f1f5203f653b4bacd.svg" alt="закрытие всплывающего окна"></button>
+            <h2 class="popup__title popup__title_type_avatar">Обновить аватар</h2>
+            <form class="popup__form popup__form_type_avatar" name="formPopupAvatar" novalidate>
+                <input
+                id="type-image"
+                class="popup__input popup__input_type_avatar" 
+                type="url" 
+                name="avatar" 
+                placeholder="Ссылка на аватар" 
+                required
+                >
+                <span class="popup__error" id="type-title-error"></span>
+                <button class="popup__button popup__button_type_avatar" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
