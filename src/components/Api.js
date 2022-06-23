@@ -93,4 +93,19 @@ likeUnPut (cardId){
     })
 }
 
+avatar(data) {
+    return fetch (`${this.url}/avatar`, {
+        method: 'PATCH',
+        headers: this.headers,
+        body: JSON.stringify(data)
+        })
+        .then ((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+    
+            return Promise.reject(`Ошибка: ${res.status}`);
+        })
+}
+
 }

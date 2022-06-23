@@ -6,6 +6,7 @@ import Popup from "./Popup.js";
         this._submitForm = handleFormSubmit;
         this._formAdd =  this._popup.querySelector('.popup__form');
         this._formInputs = this._popup.querySelectorAll('.popup__input');
+        this.buttonSave = this._popup.querySelector('.popup__button');
     }
 
     _getInputValues() {
@@ -18,20 +19,27 @@ import Popup from "./Popup.js";
         this._formAdd.addEventListener('submit', this._submitFormData);
     }
 
-    open(){
+    open() {
         super.open();
     }
 
     close() {
         super.close();
         this._formAdd.reset();
-        // this._formAdd.removeEventListener('submit', this._submitFormData);
     }
 
     _submitFormData = (evt) => {
         evt.preventDefault();
             this._submitForm(this._getInputValues());
             this.close();
+    }
+
+    download(loadTrue) {
+        if (loadTrue) {
+            this.buttonSave.textContent = "Сохранение...";
+        } else {
+            this.buttonSave.textContent = "Сохранить";
+        }
     }
 
 }
