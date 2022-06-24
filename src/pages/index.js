@@ -122,7 +122,6 @@ function openHandleCardAdd (){
 //удаление карточки
 
 function deleteCard (card) {
-    
   popupConfirm.requestDeleteCard( () => {
     apiCard.deleteCard(card.idCard)
       .then ((res) => {
@@ -194,8 +193,6 @@ function handleOpenAddAvatar() {
   handleAddAvatarForm.open();
 }
 
-
-
 //валидация формы
 function enableValidation (config){
     const formAll = Array.from (document.querySelectorAll(config.formSelector));
@@ -234,9 +231,6 @@ Promise.all([apiUser.getTasks(), apiCard.getTasks()])
     console.log ('Ошибка' + err);
   })
 
-
-
-
 imgClosePopup.addEventListener('click', () => {
     imageLarge.close()
 });
@@ -248,6 +242,5 @@ profileAvatarImg.addEventListener('click', handleOpenAddAvatar);
 cardAddHandle.setEventListeners();
 profileAddHandle.setEventListeners();
 handleAddAvatarForm.setEventListeners();
-
 
 enableValidation(config);

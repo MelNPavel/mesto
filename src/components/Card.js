@@ -7,14 +7,11 @@ export default class Card {
     this._idClient = idClient;
     this.like = item.likes;
     this.item = item;
-    
     this._template = template;
     this._handleCardClick = handleCardClick;
-    
     this.removeCard = removeCard;
     this.handleLike = likeHandle;
     this.unHandleLike = unHandleLike;
-    
   };
 
   _getElement() {
@@ -26,12 +23,6 @@ export default class Card {
 
     return cardElement;
   };
-
-  // getIdCard () {
-  //   return this.idCard;
-  // }
-  
-  // owner_id = 49abbf663692e5e96a895e13
 
 _setEventListeners() {
   this._elementLike = this._element.querySelector('.element__like')
@@ -69,12 +60,6 @@ _setEventListeners() {
     this.checkHandleLike (this.item);
   }
   }
-
-  // handleLikeClick() {
-  //   this._elementLike.classList.toggle('element__like_black')
-  // };
-
-
 
   handleRemoveCard() {
    this._element.remove();

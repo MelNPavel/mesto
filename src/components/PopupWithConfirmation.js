@@ -8,7 +8,6 @@ export default class PopupWithConfirmation extends Popup{
 
     open() {
         super.open();
-        // this.butonYes.addEventListener('click', this.close());
     }
 
     requestDeleteCard(delReq) {
@@ -17,7 +16,6 @@ export default class PopupWithConfirmation extends Popup{
 
     close() {
         super.close();
-        // this.butonYes.removeEventListener('click', this.close());
     }
 
     setEventListener() {
