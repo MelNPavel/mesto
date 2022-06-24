@@ -120,9 +120,10 @@ function openHandleCardAdd (){
 }
 
 //удаление карточки
+
 function deleteCard (card) {
-  
-  popupConfirm.reqDelCard(() => {
+    
+  popupConfirm.requestDeleteCard( () => {
     apiCard.deleteCard(card.idCard)
       .then ((res) => {
         card.handleRemoveCard();
@@ -131,14 +132,10 @@ function deleteCard (card) {
       .catch ((err) => {
         console.log ('Ошибка' + err);
       })
-    });
+    })
+    popupConfirm.setEventListener();
     popupConfirm.open();
-
-}
-
-// function deleteCardDownload(card) {
-    
-// }
+  }
 
 //Ручное добавление данных пользователя
 const profileAddHandle = new PopupWithForm (popupEdit, {
@@ -251,6 +248,6 @@ profileAvatarImg.addEventListener('click', handleOpenAddAvatar);
 cardAddHandle.setEventListeners();
 profileAddHandle.setEventListeners();
 handleAddAvatarForm.setEventListeners();
-popupConfirm.setEventListener();
+
 
 enableValidation(config);

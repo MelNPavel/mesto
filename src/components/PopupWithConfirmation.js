@@ -11,8 +11,8 @@ export default class PopupWithConfirmation extends Popup{
         // this.butonYes.addEventListener('click', this.close());
     }
 
-    reqDelCard(delReq) {
-        this._request = delReq
+    requestDeleteCard(delReq) {
+        this._delRequest = delReq;
     }
 
     close() {
@@ -21,8 +21,6 @@ export default class PopupWithConfirmation extends Popup{
     }
 
     setEventListener() {
-    this.butonYes.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        this._request});
+    this.butonYes.addEventListener('click', this._delRequest);
     }
 }
