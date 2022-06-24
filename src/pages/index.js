@@ -9,8 +9,6 @@ import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js'
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
-const likePutUrl = 'https://mesto.nomoreparties.co/v1/cohort-43/cards';
-const urlApiCardHandle = 'https://mesto.nomoreparties.co/v1/cohort-43/cards';
 const urlApiCard = 'https://mesto.nomoreparties.co/v1/cohort-43/cards';
 const urlApiHandle = 'https://mesto.nomoreparties.co/v1/cohort-43/users/me';
 const urlApi = 'https://nomoreparties.co/v1/cohort-43/users/me';
@@ -33,7 +31,9 @@ const popupWithConfirm = document.querySelector('.popup__consent_type_consent');
 const profileAvatarImg = document.querySelector('.profile__avatar');
 const popupAvatar = document.querySelector('.popup__avatar_type_avatar');
 const popupFormAvatar = document.querySelector('.popup__form_type_avatar');
- 
+const buttonDeletePopup = document.querySelector('.popup__button_type_avatar')
+const buttonPopupWithConfirm = document.querySelector('.popup__button_type_consent');
+
 const config = {
     formSelector: '.popup__form',
     inputType: '.popup__input',
@@ -94,7 +94,7 @@ const cardAddHandle = new PopupWithForm (popupAddOpen, {
   handleFormSubmit: (item) => {
     const inputsValue = {name: item.nameCard, link: item.linkCard};
     const apiCardHandle = new Api ({
-      url: urlApiCardHandle,
+      url: urlApiCard,
       headers: headersAPi})
       cardAddHandle.download(true);
       apiCardHandle.addCard(inputsValue)
@@ -121,17 +121,24 @@ function openHandleCardAdd (){
 
 //удаление карточки
 function deleteCard (card) {
-    popupConfirm.open();
+  
+  popupConfirm.reqDelCard(() => {
     apiCard.deleteCard(card.idCard)
       .then ((res) => {
-        if (res.ok){
-          card.handleRemoveCard();
-        }
+        card.handleRemoveCard();
+        popupConfirm.close();
       })
       .catch ((err) => {
         console.log ('Ошибка' + err);
       })
+    });
+    popupConfirm.open();
+
 }
+
+// function deleteCardDownload(card) {
+    
+// }
 
 //Ручное добавление данных пользователя
 const profileAddHandle = new PopupWithForm (popupEdit, {
@@ -212,7 +219,8 @@ function handleCardClick (name, link) {
 //Первоначальная инициализация карточек и данных пользователя
 Promise.all([apiUser.getTasks(), apiCard.getTasks()])
   .then (([userInfo, cards]) => {
-    userDataInfo.setUserInfo({name: userInfo.name, about: userInfo.about, avatar: userInfo.avatar});
+    userDataInfo.setUserInfo({name: userInfo.name, about: userInfo.about});
+    userDataInfo.setUserAvatar({avatar: userInfo.avatar})
     userDataInfo.setIdClient(userInfo._id);
     const cardsContainerSection = new Section({
         items: cards,
@@ -243,5 +251,6 @@ profileAvatarImg.addEventListener('click', handleOpenAddAvatar);
 cardAddHandle.setEventListeners();
 profileAddHandle.setEventListeners();
 handleAddAvatarForm.setEventListeners();
+popupConfirm.setEventListener();
 
 enableValidation(config);
