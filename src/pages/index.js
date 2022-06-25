@@ -152,7 +152,7 @@ const handleAddAvatarForm = new PopupWithForm (popupAvatar, {
     handleAddAvatarForm.download(true);
     api.avatar({avatar: data.avatar})
       .then((res) => {
-        profileAvatarImg.style.backgroundImage = `url(${res.avatar})`;
+        userDataInfo.setUserAvatar(data);
         handleAddAvatarForm.close();
       })
       .catch((err) => {
@@ -195,12 +195,9 @@ Promise.all([api.getTasksUser(), api.getTasksCards()])
     userDataInfo.setUserAvatar({avatar: userInfo.avatar})
     userDataInfo.setIdClient(userInfo._id);
     cardsContainerSection.renderInitialItems(cards)
-          const card = createCard (item);
-          cardsContainerSection.addItem(card);
-        },
-        cardsContainer
+    },
+    cardsContainer
     )
-
   .catch((err) => {
     console.log ('Ошибка' + err);
   })
