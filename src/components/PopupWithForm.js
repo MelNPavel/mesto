@@ -31,7 +31,6 @@ import Popup from "./Popup.js";
     _submitFormData = (evt) => {
         evt.preventDefault();
             this._submitForm(this._getInputValues());
-            this.close();
     }
 
     download(loadTrue) {
